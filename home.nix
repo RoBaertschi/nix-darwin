@@ -25,6 +25,7 @@
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.zoxide
     pkgs.fzf
+    pkgs.lazygit
     inputs.shelly.defaultPackage.${pkgs.system}
   ];
   
@@ -39,6 +40,7 @@
     signing = {
       format = "ssh";
       signByDefault = true;
+      key = "~/.ssh/id_ed25519";
     };
   };
 
