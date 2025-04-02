@@ -23,9 +23,12 @@
     pkgs.nodejs_23
     pkgs.gh
     pkgs.nerd-fonts.jetbrains-mono
+    pkgs.nerd-fonts.bigblue-terminal
     pkgs.zoxide
     pkgs.fzf
     pkgs.lazygit
+    pkgs.odin
+    pkgs.ols
     inputs.shelly.defaultPackage.${pkgs.system}
   ];
   
