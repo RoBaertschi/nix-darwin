@@ -38,8 +38,21 @@
   
   programs.git = {
     enable = true;
-    userName = "Robin Bärtschi";
-    userEmail = "robin.baertschi@swisscom.com";
+    includes = [
+      { # Personal
+        contents.user = {
+          name = "RoBaertschi";
+          email = "rtmbaertschi007@gmail.com";
+        };
+      }
+      { # Work
+        condition = "gitdir:~/work/";
+        contents.user = {
+          name = "Robin Bärtschi";
+          email = "robin.baertschi@swisscom.com";
+        };
+      }
+    ];
     signing = {
       format = "ssh";
       signByDefault = true;
