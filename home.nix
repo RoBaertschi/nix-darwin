@@ -18,6 +18,24 @@
     localVariables = {
       ZOXIDE_CMD_OVERRIDE = "cd";
     };
+    profileExtra = ''
+      export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+    '';
+    initContent = ''
+unset_proxy() {
+    unset HTTP_PROXY
+    unset http_proxy
+    unset HTTPS_PROXY
+    unset https_proxy
+}
+
+set_proxy() {
+    export HTTP_PROXY=http://aproxy.corproot.net:8080
+    export HTTPS_PROXY=http://aproxy.corproot.net:8080
+    export http_proxy=http://aproxy.corproot.net:8080
+    export https_proxy=http://aproxy.corproot.net:8080
+}
+    '';
   };
   home.packages = [
     pkgs.nodejs_23
@@ -29,6 +47,7 @@
     pkgs.lazygit
     pkgs.odin
     pkgs.ols
+    pkgs.bun
     inputs.shelly.defaultPackage.${pkgs.system}
   ];
   
