@@ -23,22 +23,20 @@
       eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
     initContent = ''
-unset_proxy() {
-    unset HTTP_PROXY
-    unset http_proxy
-    unset HTTPS_PROXY
-    unset https_proxy
-}
+    unset_proxy() {
+        unset HTTP_PROXY
+        unset http_proxy
+        unset HTTPS_PROXY
+        unset https_proxy
+    }
 
-set_proxy() {
-    export HTTP_PROXY=http://aproxy.corproot.net:8080
-    export HTTPS_PROXY=http://aproxy.corproot.net:8080
-    export http_proxy=http://aproxy.corproot.net:8080
-    export https_proxy=http://aproxy.corproot.net:8080
-}
-    '';
-    initExtra = ''
-      [[ ! -r '/Users/taabaroy/.opam/opam-init/init.zsh' ]] || source '/Users/taabaroy/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+    set_proxy() {
+        export HTTP_PROXY=http://aproxy.corproot.net:8080
+        export HTTPS_PROXY=http://aproxy.corproot.net:8080
+        export http_proxy=http://aproxy.corproot.net:8080
+        export https_proxy=http://aproxy.corproot.net:8080
+    }
+    [[ ! -r '/Users/taabaroy/.opam/opam-init/init.zsh' ]] || source '/Users/taabaroy/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
     '';
   };
   home.packages = [
