@@ -37,6 +37,9 @@ set_proxy() {
     export https_proxy=http://aproxy.corproot.net:8080
 }
     '';
+    initExtra = ''
+      [[ ! -r '/Users/taabaroy/.opam/opam-init/init.zsh' ]] || source '/Users/taabaroy/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+    '';
   };
   home.packages = [
     pkgs.nodejs_23
@@ -54,6 +57,10 @@ set_proxy() {
   
   home.sessionVariables = {
     SHELL = "/bin/zsh";
+  };
+
+  programs.opam = {
+    enable = true;
   };
   
   programs.git = {
