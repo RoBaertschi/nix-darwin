@@ -2,6 +2,10 @@
   description = "Example nix-darwin system flake";
 
   inputs = {
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -16,6 +20,7 @@
     nixpkgs,
     home-manager,
     shelly,
+    lix-module,
   }: let
     configuration = {
       pkgs,
@@ -30,6 +35,7 @@
         neovim
         oh-my-zsh
         zsh-completions
+        rustup
       ];
       programs.direnv.enable = true;
       programs.direnv.nix-direnv.enable = true;
@@ -76,6 +82,7 @@
     # $ darwin-rebuild build --flake .#UM00016
     darwinConfigurations."UM00016" = nix-darwin.lib.darwinSystem {
       modules = [
+        lix-module.nixosModules.default
         configuration
         home-manager.darwinModules.home-manager
       ];
