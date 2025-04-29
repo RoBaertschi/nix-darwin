@@ -51,14 +51,9 @@
     pkgs.ols
     pkgs.bun
     pkgs.ocaml
-    pkgs.opam
+    pkgs.ripgrep
     inputs.shelly.defaultPackage.${pkgs.system}
   ];
-
-  programs.opam = {
-    enable = true;
-    enableZshIntegration = true;
-  };
 
   home.sessionVariables = {
     SHELL = "/bin/zsh";
