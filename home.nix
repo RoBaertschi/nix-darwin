@@ -50,9 +50,16 @@
     pkgs.odin
     pkgs.ols
     pkgs.bun
+    pkgs.ocaml
+    pkgs.opam
     inputs.shelly.defaultPackage.${pkgs.system}
   ];
-  
+
+  programs.opam = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   home.sessionVariables = {
     SHELL = "/bin/zsh";
   };
@@ -64,13 +71,15 @@
   programs.git = {
     enable = true;
     includes = [
-      { # Personal
+      {
+        # Personal
         contents.user = {
           name = "RoBaertschi";
           email = "rtmbaertschi007@gmail.com";
         };
       }
-      { # Work
+      {
+        # Work
         condition = "gitdir:~/work/";
         contents.user = {
           name = "Robin Bärtschi";

@@ -11,6 +11,10 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     shelly.url = "github:RoBaertschi/shelly-scripts";
   };
 
@@ -65,15 +69,9 @@
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
 
-      users.users = {
-        taabaroy = {
-          name = "taabaroy";
-          home = /Users/taabaroy;
-        };
-      };
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.taabaroy = ./home.nix;
+      home-manager.users.robin = ./home.nix;
       home-manager.extraSpecialArgs = {inherit inputs;};
       home-manager.backupFileExtension = "before-home-manager";
     };
@@ -85,6 +83,29 @@
         lix-module.nixosModules.default
         configuration
         home-manager.darwinModules.home-manager
+        {
+          users.users = {
+            robin = {
+              name = "taabaroy";
+              home = /Users/taabaroy;
+            };
+          };
+        }
+      ];
+    };
+    darwinConfigurations."macbook-air" = nix-darwin.lib.darwinSystem {
+      modules = [
+        lix-module.nixosModules.default
+        configuration
+        home-manager.darwinModules.home-manager
+        {
+          users.users = {
+            robin = {
+              name = "robin";
+              home = /Users/robin;
+            };
+          };
+        }
       ];
     };
   };
