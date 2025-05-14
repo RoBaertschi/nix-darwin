@@ -44,7 +44,7 @@
         enable = true;
         taps = [];
         brews = [];
-        casks = ["iterm2" "proton-pass" "mac-mouse-fix" "zen"];
+        casks = ["iterm2" "proton-pass" "mac-mouse-fix" "zen-browser"];
       };
 
       # Necessary for using flakes on this system.
