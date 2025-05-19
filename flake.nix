@@ -37,9 +37,9 @@
         zsh-completions
         rustup
         go
-        quickemu
         qemu
         nh
+        fh
       ];
       programs.direnv.enable = true;
       programs.direnv.nix-direnv.enable = true;
@@ -84,6 +84,7 @@
         configuration
         home-manager.darwinModules.home-manager
         {
+          system.primaryUser = "taabaroy";
           users.users = {
             robin = {
               name = "taabaroy";
@@ -99,6 +100,7 @@
         configuration
         home-manager.darwinModules.home-manager
         {
+          system.primaryUser = "robin";
           users.users = {
             robin = {
               name = "robin";

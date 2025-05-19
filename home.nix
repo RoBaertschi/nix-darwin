@@ -40,7 +40,7 @@
     '';
   };
   home.packages = [
-    pkgs.nodejs_23
+    pkgs.nodejs_24
     pkgs.gh
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.nerd-fonts.bigblue-terminal
