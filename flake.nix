@@ -36,6 +36,10 @@
         oh-my-zsh
         zsh-completions
         rustup
+        go
+        quickemu
+        qemu
+        nh
       ];
       programs.direnv.enable = true;
       programs.direnv.nix-direnv.enable = true;
