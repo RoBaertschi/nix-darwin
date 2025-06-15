@@ -28,11 +28,13 @@
       home-manager,
       ...
     }: {
+      nixpkgs.overlays = [ (import ./odin-overlay.nix) ];
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages = with pkgs; [
         alejandra
         neovim
+        tree-sitter
         oh-my-zsh
         zsh-completions
         rustup
@@ -40,6 +42,8 @@
         qemu
         nh
         fh
+        zig
+        nasm
       ];
       programs.direnv.enable = true;
       programs.direnv.nix-direnv.enable = true;
@@ -48,7 +52,7 @@
         enable = true;
         taps = [];
         brews = [];
-        casks = ["iterm2" "proton-pass" "mac-mouse-fix" "zen-browser" "obsidian"];
+        casks = ["iterm2" "proton-pass" "mac-mouse-fix" "zen" "obsidian"];
       };
 
       # Necessary for using flakes on this system.

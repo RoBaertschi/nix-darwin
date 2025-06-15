@@ -19,7 +19,7 @@
       ZOXIDE_CMD_OVERRIDE = "cd";
     };
     profileExtra = ''
-      export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+      export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:/Users/robin/.mint/bin:$PATH"
       eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
     initContent = ''
@@ -82,6 +82,11 @@
         };
       }
     ];
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
+    };
     signing = {
       format = "ssh";
       signByDefault = true;
