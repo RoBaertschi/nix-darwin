@@ -39,11 +39,13 @@
         zsh-completions
         rustup
         go
-        qemu
+        qemu_full
         nh
         fh
         zig
         nasm
+        yq
+        jq
       ];
       programs.direnv.enable = true;
       programs.direnv.nix-direnv.enable = true;

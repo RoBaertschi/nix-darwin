@@ -53,6 +53,7 @@
     pkgs.ocaml
     pkgs.ripgrep
     inputs.shelly.defaultPackage.${pkgs.system}
+    pkgs.taskwarrior3
   ];
 
   home.sessionVariables = {
