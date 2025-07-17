@@ -155,11 +155,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1745063767,
-        "narHash": "sha256-0RwaK4iGxKdWq0lTPMXih3bsFK35UJVGA/CuGaYya8o=",
+        "lastModified": 1752742520,
+        "narHash": "sha256-EcQ21FFESy/cF/9AnKM8mT5nhZ8+Mf6nwn9a08IG3iw=",
         "owner": "RoBaertschi",
         "repo": "shelly-scripts",
-        "rev": "297635fc1324bb7e2c3971a138e12c0227454615",
+        "rev": "b487a1820a135592fb34b01ee7d8660ba73fe47f",
         "type": "github"
       },
       "original": {

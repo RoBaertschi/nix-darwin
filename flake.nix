@@ -46,6 +46,8 @@
         nasm
         yq
         jq
+        odin
+        sdl3.dev
       ];
       programs.direnv.enable = true;
       programs.direnv.nix-direnv.enable = true;
@@ -88,6 +90,7 @@
       modules = [
         lix-module.nixosModules.default
         configuration
+        shelly.nixosModules.shelly
         home-manager.darwinModules.home-manager
         {
           system.primaryUser = "taabaroy";
@@ -105,6 +108,7 @@
         lix-module.nixosModules.default
         configuration
         home-manager.darwinModules.home-manager
+        shelly.nixosModules.shelly
         {
           system.primaryUser = "robin";
           users.users = {

@@ -20,6 +20,7 @@
     };
     profileExtra = ''
       export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:/Users/robin/.mint/bin:$PATH"
+      export HOMEBREW_NO_INSTALL_FROM_API=1
       eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
     initContent = ''
@@ -37,6 +38,7 @@
         export https_proxy=http://aproxy.corproot.net:8080
     }
     [[ ! -r '/Users/taabaroy/.opam/opam-init/init.zsh' ]] || source '/Users/taabaroy/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+    export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
     '';
   };
   home.packages = [
@@ -47,12 +49,12 @@
     pkgs.zoxide
     pkgs.fzf
     pkgs.lazygit
-    pkgs.odin
+    # pkgs.odin
     pkgs.ols
     pkgs.bun
     pkgs.ocaml
     pkgs.ripgrep
-    inputs.shelly.defaultPackage.${pkgs.system}
+    pkgs.shelly
     pkgs.taskwarrior3
   ];
 
@@ -69,17 +71,23 @@
     includes = [
       {
         # Personal
-        contents.user = {
-          name = "RoBaertschi";
-          email = "rtmbaertschi007@gmail.com";
+        contents = {
+          user = {
+            name = "RoBaertschi";
+            email = "rtmbaertschi007@gmail.com";
+          };
+          gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers.personal";
         };
       }
       {
         # Work
         condition = "gitdir:~/work/";
-        contents.user = {
-          name = "Robin Bärtschi";
-          email = "robin.baertschi@swisscom.com";
+        contents = {
+          user = {
+            name = "Robin Bärtschi";
+            email = "robin.baertschi@swisscom.com";
+          };
+          gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers.work";
         };
       }
     ];
