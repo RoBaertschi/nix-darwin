@@ -38,7 +38,7 @@
         export https_proxy=http://aproxy.corproot.net:8080
     }
     [[ ! -r '/Users/taabaroy/.opam/opam-init/init.zsh' ]] || source '/Users/taabaroy/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-    export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+    export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:/opt/homebrew/opt/ruby/bin:$PATH"
     '';
   };
   home.packages = [
